@@ -1,0 +1,29 @@
+def funcion(x,y):
+    return (2-(y/x))
+
+def  rk(h,x0,y0):
+    x= x0+h
+    k1 = h * funcion(x0, y0)
+    k2 = h * funcion(x0 + (h/2), y0 + (k1/2))
+    k3 = h * funcion(x0 + (h/2), y0 + (k2/2))
+    k4 = h * funcion(x0 + h, y0 + k3)
+    y=y0+  (k1+2*k2+2*k3+k4)/6
+    return [x, y, k1, k2, k3, k4]
+
+def main():
+    h=0.1
+    x0=1
+    y0=0
+    cont=0
+    while(cont<10)
+        resp= rk(h,x0,y0)
+        cont+=1
+
+        print "%d\n"  %(cont)
+        print "X(%d) = %s" %(cont,resp[0])
+        print "Y(%d) = %s" %(cont,resp[1])
+        print "\n"
+        print "\n"
+
+        x0=resp[0]
+        y0=resp[1]
